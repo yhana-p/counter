@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: prod
     strategy:
       matrix:
         node-version: [16.x]
@@ -30,6 +31,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    environment: prod
     needs: build
     steps:
     - uses: citizen-of-planet-earth/cf-cli-action@master
