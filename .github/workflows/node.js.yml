@@ -34,6 +34,7 @@ jobs:
     environment: prod
     needs: build
     steps:
+    - run: pwd
     - uses: citizen-of-planet-earth/cf-cli-action@master
       with:
         cf_api: ${{ secrets.CF_API }}
@@ -41,4 +42,4 @@ jobs:
         cf_password: ${{ secrets.CF_PASSWORD }}
         cf_org: ${{ secrets.CF_ORG }}
         cf_space: ${{ secrets.CF_SPACE }}
-        command: push -f manifest.yml
+        command: push -f ../../manifest.yml
